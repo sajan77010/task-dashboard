@@ -3,6 +3,7 @@ import Sidebar from "./components/Sidebar";
 import Dashboard from "./pages/Dashboard";
 import CallLogs from "./pages/CallLogs";
 import Appointments from "./pages/Appointments";
+import Settings from "./pages/Settings";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/calls" element={<CallLogs />} />
           <Route path="/appointments" element={<Appointments />} />
+          <Route path="/settings" element={<Settings />} />
           {/* Add other routes here later */}
         </Routes>
       </div>
