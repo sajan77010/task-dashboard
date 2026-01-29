@@ -5,6 +5,7 @@ import CallLogs from "./pages/CallLogs";
 import Appointments from "./pages/Appointments";
 import Settings from "./pages/Settings";
 
+
 function App() {
   return (
     <Router>
@@ -15,7 +16,7 @@ function App() {
           <Route path="/calls" element={<CallLogs />} />
           <Route path="/appointments" element={<Appointments />} />
           <Route path="/settings" element={<Settings />} />
-          {/* Add other routes here later */}
+          
         </Routes>
       </div>
     </Router>
