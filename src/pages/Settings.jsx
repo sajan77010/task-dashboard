@@ -63,7 +63,7 @@ const ProfileTab = ({ isEditing, onEdit, onSave }) => {
           <h3 className="text-slate-400 text-sm mb-4">Profile Image</h3>
           <div className="relative w-24 h-24">
             <img 
-              src="https://i.ibb.co.com/yFLCtbLh/Avatar.png" 
+              src="https://i.ibb.co.com/yFLCtbLh/Avatar.png"
               className="w-24 h-24 rounded-full border-2 border-slate-700 object-cover" 
               alt="User avatar" 
             />
