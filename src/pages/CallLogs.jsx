@@ -18,7 +18,7 @@ const CallLogs = () => {
         <h1 className="text-2xl font-semibold">Call Logs & History</h1>
         <div className="flex items-center gap-4">
            {/* Replace with your avatar path */}
-          <img src="../../src/image/Avatar.png" className="w-10 h-10 rounded-full border-2 border-slate-700" alt="User" />
+          <img src="https://i.ibb.co.com/yFLCtbLh/Avatar.png"  className="w-10 h-10 rounded-full border-2 border-slate-700" alt="User" />
         </div>
       </div>
 

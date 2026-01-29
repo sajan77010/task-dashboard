@@ -17,7 +17,7 @@ const Settings = () => {
         <div className="flex items-center gap-4">
           <Bell className="text-slate-400 cursor-pointer" size={20} />
           <img 
-            src="../../src/image/Avatar.png" 
+            src="https://i.ibb.co.com/yFLCtbLh/Avatar.png"  
             className="w-10 h-10 rounded-full border-2 border-slate-700" 
             alt="Profile" 
           />
@@ -63,7 +63,7 @@ const ProfileTab = ({ isEditing, onEdit, onSave }) => {
           <h3 className="text-slate-400 text-sm mb-4">Profile Image</h3>
           <div className="relative w-24 h-24">
             <img 
-              src="../../src/image/Avatar.png" 
+              src="https://i.ibb.co.com/yFLCtbLh/Avatar.png" 
               className="w-24 h-24 rounded-full border-2 border-slate-700 object-cover" 
               alt="User avatar" 
             />

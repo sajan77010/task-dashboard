@@ -21,7 +21,7 @@ const Appointments = () => {
         <div className="flex items-center gap-4">
           <Bell className="text-slate-400 cursor-pointer" size={20} />
           <img 
-            src="../../src/image/Avatar.png" 
+            src="https://i.ibb.co.com/yFLCtbLh/Avatar.png" 
             className="w-10 h-10 rounded-full border-2 border-slate-700" 
             alt="Profile" 
           />
