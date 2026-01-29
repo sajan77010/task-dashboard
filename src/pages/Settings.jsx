@@ -5,7 +5,9 @@ const Settings = () => {
   const [activeTab, setActiveTab] = useState('Profile');
   const [isEditing, setIsEditing] = useState(false);
 
-  // Function to handle the toggle
+  // Constants for hosted assets to ensure they show up after deployment
+  const AVATAR_URL = "https://i.ibb.co.com/yFLCtbLh/Avatar.png";
+
   const handleEditToggle = () => setIsEditing(true);
   const handleSave = () => setIsEditing(false);
 
@@ -17,8 +19,8 @@ const Settings = () => {
         <div className="flex items-center gap-4">
           <Bell className="text-slate-400 cursor-pointer" size={20} />
           <img 
-            src="https://i.ibb.co.com/yFLCtbLh/Avatar.png"  
-            className="w-10 h-10 rounded-full border-2 border-slate-700" 
+            src={AVATAR_URL} 
+            className="w-10 h-10 rounded-full border-2 border-slate-700 object-cover" 
             alt="Profile" 
           />
         </div>
@@ -31,7 +33,7 @@ const Settings = () => {
             key={tab}
             onClick={() => {
               setActiveTab(tab);
-              setIsEditing(false); // Reset editing when switching tabs
+              setIsEditing(false);
             }}
             className={`pb-4 text-lg font-medium transition-all relative ${
               activeTab === tab ? 'text-white' : 'text-slate-500'
@@ -46,7 +48,12 @@ const Settings = () => {
       </div>
 
       {activeTab === 'Profile' ? (
-        <ProfileTab isEditing={isEditing} onEdit={handleEditToggle} onSave={handleSave} />
+        <ProfileTab 
+          isEditing={isEditing} 
+          onEdit={handleEditToggle} 
+          onSave={handleSave} 
+          avatar={AVATAR_URL}
+        />
       ) : (
         <PasswordTab />
       )}
@@ -54,8 +61,7 @@ const Settings = () => {
   );
 };
 
-const ProfileTab = ({ isEditing, onEdit, onSave }) => {
-  // If editing mode is ON, show the form with inputs and the large Green Save button
+const ProfileTab = ({ isEditing, onEdit, onSave, avatar }) => {
   if (isEditing) {
     return (
       <div className="max-w-4xl animate-in fade-in duration-500">
@@ -63,18 +69,16 @@ const ProfileTab = ({ isEditing, onEdit, onSave }) => {
           <h3 className="text-slate-400 text-sm mb-4">Profile Image</h3>
           <div className="relative w-24 h-24">
             <img 
-              src="https://i.ibb.co.com/yFLCtbLh/Avatar.png"
+              src={avatar}
               className="w-24 h-24 rounded-full border-2 border-slate-700 object-cover" 
               alt="User avatar" 
             />
-            {/* The small edit icon on the avatar from your image */}
             <div className="absolute bottom-0 right-0 bg-[#1e293b] p-1.5 rounded-lg border border-slate-600 shadow-lg cursor-pointer">
               <SquarePen size={16} className="text-blue-400" />
             </div>
           </div>
         </div>
 
-        {/* Input Grid matching your image layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 mt-10">
           <EditInput label="Full Name" defaultValue="Jane D." />
           <EditInput label="Email" defaultValue="jane@gmail.com" />
@@ -82,7 +86,6 @@ const ProfileTab = ({ isEditing, onEdit, onSave }) => {
           <EditInput label="Store Address" defaultValue="123 Main Street, New York" />
         </div>
 
-        {/* The Large Green Save Button */}
         <div className="mt-16 flex justify-center">
           <button 
             onClick={onSave}
@@ -95,19 +98,16 @@ const ProfileTab = ({ isEditing, onEdit, onSave }) => {
     );
   }
 
-  // Default View (View Only)
   return (
     <div className="max-w-2xl animate-in fade-in duration-500">
       <div className="mb-8">
         <h3 className="text-slate-400 text-sm mb-4">Profile Image</h3>
         <div className="flex items-center gap-6">
-          <div className="relative group">
-            <img 
-              src="../../src/image/Avatar.png" 
-              className="w-24 h-24 rounded-full border-2 border-slate-700 object-cover" 
-              alt="User avatar" 
-            />
-          </div>
+          <img 
+            src={avatar} 
+            className="w-24 h-24 rounded-full border-2 border-slate-700 object-cover" 
+            alt="User avatar" 
+          />
           <button 
             onClick={onEdit}
             className="px-4 py-2 bg-[#0B0E1E] border border-slate-700 rounded-lg text-sm text-slate-300 hover:bg-slate-800 transition-all shadow-[0_0_15px_rgba(59,130,246,0.1)]"
@@ -127,7 +127,6 @@ const ProfileTab = ({ isEditing, onEdit, onSave }) => {
   );
 };
 
-// Helper components for clean code
 const EditInput = ({ label, defaultValue }) => (
   <div className="flex flex-col gap-2">
     <label className="text-slate-100 font-medium">{label}</label>
@@ -150,11 +149,11 @@ const PasswordTab = () => (
   <div className="max-w-md space-y-6 animate-in fade-in duration-500">
     <div>
       <label className="block text-sm text-slate-400 mb-2">Current Password</label>
-      <input type="password" underline className="w-full bg-[#0B0E1E] border border-slate-800 rounded-lg px-4 py-2 outline-none focus:border-blue-500 transition-all" />
+      <input type="password" underline="true" className="w-full bg-[#0B0E1E] border border-slate-800 rounded-lg px-4 py-2 outline-none focus:border-blue-500 transition-all" />
     </div>
     <div>
       <label className="block text-sm text-slate-400 mb-2">New Password</label>
-      <input type="password" underline className="w-full bg-[#0B0E1E] border border-slate-800 rounded-lg px-4 py-2 outline-none focus:border-blue-500 transition-all" />
+      <input type="password" underline="true" className="w-full bg-[#0B0E1E] border border-slate-800 rounded-lg px-4 py-2 outline-none focus:border-blue-500 transition-all" />
     </div>
     <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg text-sm font-medium transition-colors">
       Update Password
